@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Alert and Assistance Network</title>
     <style>
         body {
@@ -75,10 +76,10 @@
         <h2>Login</h2>
         <form id="loginForm">
             <label for="username">Username</label>
-            <input type="text" id="username" required>
+            <input type="text" id="username" placeholder="Enter your username" required>
 
             <label for="password">Password</label>
-            <input type="password" id="password" required>
+            <input type="password" id="password" placeholder="Enter your password" required>
 
             <p class="error" id="errorMessage">Invalid username or password</p>
 
@@ -95,10 +96,10 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            // Example validation: username = admin, password = 1234
+            // Example validation: username = saicharan, password = 8247
             if (username === 'saicharan' && password === '8247') {
                 alert('Login successful!');
-                window.location.href = 'index.html'; // redirect to homepage
+                window.location.href = 'index.html'; // Redirect to homepage
             } else {
                 errorMessage.style.display = 'block';
             }
