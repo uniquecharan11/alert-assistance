@@ -1,0 +1,12 @@
+<section id="weather-search" style="margin-top: 2rem;">
+  <h2>Check Weather by Location</h2>
+  <input type="text" id="cityInput" placeholder="Enter location (e.g., Delhi)" />
+  <button onclick="getWeather()">Get Weather</button>
+
+  <div id="loader" class="loader" style="display:none;">
+    <div class="spinner"></div>
+    <p>Loading weather data...</p>
+  </div>
+
+  <div id="weatherOutput" class="weather-result" style="margin-top: 1rem;"></div>
+</section>
