@@ -375,6 +375,53 @@
                 </div>
             </div>
         </section>
+        <div id="weather-report" style="font-family: Arial; border: 1px solid #ccc; padding: 20px; width: 300px; border-radius: 10px;">
+  <h3>Live Weather Report for India</h3>
+  <p><strong>Date:</strong> <span id="weather-date"></span></p>
+  <p><strong>City:</strong> <span id="weather-city">New Delhi</span></p>
+  <p><strong>Temperature:</strong> <span id="weather-temp">--</span> °C</p>
+  <p><strong>Condition:</strong> <span id="weather-desc">--</span></p>
+  <img id="weather-icon" src="" alt="Weather icon" style="display: none; width: 50px; height: 50px;">
+</div>
+
+<script>
+  const apiKey = "3a99b17a67f9ae0f43e80a630fd1f675"; // Replace with your actual API key
+  const cities = ["New Delhi,IN", "Mumbai,IN", "Kolkata,IN"];
+  let currentCityIndex = 0;
+
+  function updateWeather() {
+    const city = cities[currentCityIndex];
+    document.getElementById("weather-city").textContent = city.split(",")[0];
+    document.getElementById("weather-date").textContent = new Date().toLocaleString();
+
+    fetch(https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("weather-temp").textContent = data.main.temp;
+        document.getElementById("weather-desc").textContent = data.weather[0].description;
+        const iconCode = data.weather[0].icon;
+        const iconUrl = https://openweathermap.org/img/wn/${iconCode}@2x.png;
+        const iconImg = document.getElementById("weather-icon");
+        iconImg.src = iconUrl;
+        iconImg.style.display = 'inline-block';
+      })
+      .catch(() => {
+        document.getElementById("weather-temp").textContent = "N/A";
+        document.getElementById("weather-desc").textContent = "Unable to fetch";
+        document.getElementById("weather-icon").style.display = 'none';
+      });
+
+    // Cycle to the next city
+    currentCityIndex = (currentCityIndex + 1) % cities.length;
+  }
+
+  updateWeather();
+  setInterval(updateWeather, 10 * 60 * 1000); // Update every 10 minutes
+</script>
+
+
+
+
         
         <section id="contact" style="margin-top: 2rem;">
             <h2>Contact Information</h2>
