@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALERT AND ASSISTANCE NETWORK</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title> VILLAGE ALERTS AND ASSISTANCE NETWORK</title>
     <style>
         :root {
             --primary: #2c6e49;
@@ -13,20 +13,20 @@
             --info: #118ab2;
             --dark: #333;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background-color: #f9f9f9;
             color: var(--dark);
             line-height: 1.6;
         }
-        
+
         header {
             background-color: var(--primary);
             color: white;
@@ -34,25 +34,25 @@
             text-align: center;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        
+
         nav {
             background-color: var(--secondary);
             display: flex;
             justify-content: center;
             padding: 0.5rem;
         }
-        
+
         nav ul {
             display: flex;
             list-style: none;
             flex-wrap: wrap;
             justify-content: center;
         }
-        
+
         nav li {
             margin: 0 1rem;
         }
-        
+
         nav a {
             color: white;
             text-decoration: none;
@@ -61,17 +61,17 @@
             border-radius: 4px;
             transition: background-color 0.3s;
         }
-        
+
         nav a:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 1rem;
         }
-        
+
         .alert-banner {
             background-color: var(--warning);
             color: white;
@@ -82,11 +82,11 @@
             align-items: center;
             justify-content: space-between;
         }
-        
+
         .alert-banner.hidden {
             display: none;
         }
-        
+
         .close-alert {
             background: none;
             border: none;
@@ -94,14 +94,14 @@
             font-size: 1.2rem;
             cursor: pointer;
         }
-        
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1rem;
             margin-top: 2rem;
         }
-        
+
         .card {
             background-color: white;
             border-radius: 8px;
@@ -109,18 +109,18 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
         }
-        
+
         .card:hover {
             transform: translateY(-5px);
         }
-        
+
         .card h3 {
             color: var(--primary);
             margin-bottom: 1rem;
             border-bottom: 2px solid var(--light);
             padding-bottom: 0.5rem;
         }
-        
+
         .btn {
             display: inline-block;
             background-color: var(--primary);
@@ -134,40 +134,44 @@
             transition: background-color 0.3s;
             margin-top: 1rem;
         }
-        
+
         .btn:hover {
             background-color: var(--secondary);
         }
-        
+
         .btn-warning {
             background-color: var(--warning);
         }
-        
+
         .btn-warning:hover {
             background-color: #c01e1e;
         }
-        
+
         .btn-info {
             background-color: var(--info);
         }
-        
+
         .btn-info:hover {
             background-color: #0e7a9e;
         }
-        
+
         form {
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            max-width: 500px;
         }
-        
-        input, textarea, select {
+
+        input,
+        textarea,
+        select {
             padding: 0.8rem;
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 1rem;
+            width: 100%;
         }
-        
+
         footer {
             background-color: var(--dark);
             color: white;
@@ -175,16 +179,16 @@
             padding: 1rem;
             margin-top: 2rem;
         }
-        
+
         .resource-list {
             list-style: none;
         }
-        
+
         .resource-list li {
             padding: 0.5rem 0;
             border-bottom: 1px solid #eee;
         }
-        
+
         .status-indicator {
             display: inline-block;
             width: 12px;
@@ -192,19 +196,19 @@
             border-radius: 50%;
             margin-right: 8px;
         }
-        
+
         .status-available {
             background-color: #2ecc71;
         }
-        
+
         .status-limited {
             background-color: #f39c12;
         }
-        
+
         .status-unavailable {
             background-color: #e74c3c;
         }
-        
+
         .map-container {
             width: 100%;
             height: 300px;
@@ -216,17 +220,17 @@
             justify-content: center;
             color: #777;
         }
-        
+
         @media (max-width: 768px) {
             .grid {
                 grid-template-columns: 1fr;
             }
-            
+
             nav ul {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             nav li {
                 margin: 0.3rem 0;
             }
@@ -235,10 +239,10 @@
 </head>
 <body>
     <header>
-        <h1>ALERT AND ASSISTANCE NETWORK</h1>
+        <h1> VILLAGE ALERTS AND ASSISTANCE NETWORK</h1>
         <p>Connecting our community for safety and support</p>
     </header>
-    
+
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
@@ -249,7 +253,7 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-    
+
     <div class="container">
         <div class="alert-banner" id="alertBanner">
             <div>
@@ -257,24 +261,24 @@
             </div>
             <button class="close-alert" onclick="document.getElementById('alertBanner').classList.add('hidden')">×</button>
         </div>
-        
+
         <section id="home">
             <h2>Welcome to our Alert Network</h2>
             <p>Our platform connects emergency alerts, resource sharing, and community assistance. Stay informed and help each other during times of need.</p>
-            
+
             <div class="grid">
                 <div class="card">
                     <h3>Emergency Alerts</h3>
                     <p>Receive timely notifications about weather events, power outages, road closures, and other critical information.</p>
                     <a href="#alerts" class="btn btn-warning">View Active Alerts</a>
                 </div>
-                
+
                 <div class="card">
                     <h3>Community Resources</h3>
                     <p>Find information about available resources, from community shelters to water distribution points and medical facilities.</p>
                     <a href="#resources" class="btn btn-info">Browse Resources</a>
                 </div>
-                
+
                 <div class="card">
                     <h3>Request Assistance</h3>
                     <p>Need help with evacuation, supplies, or other emergency needs? Submit a request and get connected with volunteers.</p>
@@ -282,10 +286,10 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="alerts" style="margin-top: 2rem;">
             <h2>Current Alerts</h2>
-            
+
             <div class="card">
                 <h3>Weather Warning</h3>
                 <p><strong>Issued:</strong> May 6, 2025 - 10:30 AM</p>
@@ -293,7 +297,7 @@
                 <p><strong>Affected Areas:</strong> North and East village regions</p>
                 <p><strong>Expected Duration:</strong> Until tomorrow morning</p>
             </div>
-            
+
             <div class="card" style="margin-top: 1rem;">
                 <h3>Road Closure</h3>
                 <p><strong>Issued:</strong> May 5, 2025 - 3:45 PM</p>
@@ -301,14 +305,22 @@
                 <p><strong>Expected Re-opening:</strong> May 8, 2025</p>
             </div>
         </section>
-        
+
         <section id="resources" style="margin-top: 2rem;">
             <h2>Community Resources</h2>
-            
+
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15239.658622643472!2d78.39559795!3d17.2713634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1746545119702!5m2!1sen!2sin" width="100%" height="100%" style="border:0; border-radius:4px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15239.658622643472!2d78.39559795!3d17.2713634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1746545119702!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style="border:0; border-radius:4px;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
             </div>
-            
+
             <div class="grid">
                 <div class="card">
                     <h3>Emergency Shelters</h3>
@@ -318,132 +330,107 @@
                         <li><span class="status-indicator status-available"></span> St. Mary's Church Hall - Space Available</li>
                     </ul>
                 </div>
-                
+
                 <div class="card">
                     <h3>Medical Facilities</h3>
                     <ul class="resource-list">
                         <li><span class="status-indicator status-available"></span> Village Clinic - Open 8AM-8PM</li>
-                        <li><span class="status-indicator status-unavailable"></span> Mobile Medical Unit - Not Currently Deployed</li>
-                        <li><span class="status-indicator status-available"></span> Pharmacy - Open 9AM-5PM</li>
+                        <li><span class="status-indicator status-unavailable"></span> Mobile Medical Unit - Not Available Currently</li>
+                        <li><span class="status-indicator status-available"></span> Downtown Hospital - Emergency Services 24/7</li>
                     </ul>
                 </div>
-                
+
                 <div class="card">
-                    <h3>Essential Supplies</h3>
+                    <h3>Water Distribution Points</h3>
                     <ul class="resource-list">
-                        <li><span class="status-indicator status-available"></span> Water Distribution - Village Square</li>
-                        <li><span class="status-indicator status-limited"></span> Food Bank - Limited Stocks</li>
-                        <li><span class="status-indicator status-available"></span> Blanket/Clothing Donation - Community Center</li>
+                        <li><span class="status-indicator status-available"></span> East Village Well - Open 24/7</li>
+                        <li><span class="status-indicator status-limited"></span> West Community Tap - Open 9AM-5PM</li>
+                        <li><span class="status-indicator status-available"></span> North Storage Tanks - Open 24/7</li>
                     </ul>
                 </div>
             </div>
         </section>
-        
+
         <section id="assistance" style="margin-top: 2rem;">
             <h2>Request Assistance</h2>
-              <section id="assistance" style="margin-top: 2rem;">
-    
-    
-    <div class="card">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeyMxMr2QzL_cZ_KZQFhOtwXC7_41yakuMsfWOz1RzsWHKudg/viewform?embedded=true" width="100%" height="1532" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    </div>
-</section>                
-                                    </form>
-            </div>
+            <!-- Assistance Form -->
+            <form id="assistanceForm" action="https://formspree.io/f/meozzbya" method="POST">
+                <label for="name">Name:</label><br />
+                <input type="text" id="name" name="name" required /><br />
+
+                <label for="problem">Describe your problem:</label><br />
+                <textarea id="problem" name="problem" rows="4" required></textarea
+                ><br />
+
+                <button type="submit" class="btn">Submit</button>
+            </form>
+            <p id="formMessage" style="color: green; margin-top: 1rem;"></p>
         </section>
-        
+
         <section id="volunteer" style="margin-top: 2rem;">
-            <h2>Volunteer Opportunities</h2>
-            
-            <div class="grid">
-                <div class="card">
-                    <h3>Join Our Response Team</h3>
-                    <p>Help with evacuations, supply distribution, and other emergency response activities.</p>
-                    <a href="#" class="btn">Sign Up</a>
-                </div>
-                
-                <div class="card">
-                    <h3>Resource Donation</h3>
-                    <p>Donate essential supplies or equipment to help community members in need.</p>
-                    <a href="#" class="btn">Donate Resources</a>
-                </div>
-                
-                <div class="card">
-                    <h3>Skills Sharing</h3>
-                    <p>Register your specialized skills (medical, construction, transport, etc.) for when they're needed.</p>
-                    <a href=""https://docs.google.com/forms/d/e/1FAIpQLSdoJ-lmRH7RlfOCbTY1e-bVX2i0mPiu_HocAEEpu3MejPDj9A/viewform?embedded=true" width="640" height="956" frameborder="0" marginheight="35" marginwidth="35"class="btn">Register Skills</a>
-                </div>
-            </div>
+            <h2>Volunteer to Help</h2>
+            <p>If you want to volunteer or offer resources, please contact our coordinator at <a href="mailto:volunteer@villagealerts.com">volunteer@villagealerts.com</a>.</p>
         </section>
-        <div id="weather-report" style="font-family: Arial; border: 1px solid #ccc; padding: 20px; width: 300px; border-radius: 10px;">
-  <h3>Live Weather Report for India</h3>
-  <p><strong>Date:</strong> <span id="weather-date"></span></p>
-  <p><strong>City:</strong> <span id="weather-city">New Delhi</span></p>
-  <p><strong>Temperature:</strong> <span id="weather-temp">--</span> °C</p>
-  <p><strong>Condition:</strong> <span id="weather-desc">--</span></p>
-  <img id="weather-icon" src="" alt="Weather icon" style="display: none; width: 50px; height: 50px;">
-</div>
 
-<script>
-  const apiKey = "3a99b17a67f9ae0f43e80a630fd1f675"; // Replace with your actual API key
-  const cities = ["New Delhi,IN", "Mumbai,IN", "Kolkata,IN"];
-  let currentCityIndex = 0;
+        <section id="weather-report" style="margin-top: 2rem;">
+            <h2>Weather Report</h2>
+            <p>Today: Sunny, High 30°C, Low 22°C</p>
+            <p>Tomorrow: Partly cloudy with a chance of rain.</p>
+        </section>
 
-  function updateWeather() {
-    const city = cities[currentCityIndex];
-    document.getElementById("weather-city").textContent = city.split(",")[0];
-    document.getElementById("weather-date").textContent = new Date().toLocaleString();
-
-    fetch(https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric)
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById("weather-temp").textContent = data.main.temp;
-        document.getElementById("weather-desc").textContent = data.weather[0].description;
-        const iconCode = data.weather[0].icon;
-        const iconUrl = https://openweathermap.org/img/wn/${iconCode}@2x.png;
-        const iconImg = document.getElementById("weather-icon");
-        iconImg.src = iconUrl;
-        iconImg.style.display = 'inline-block';
-      })
-      .catch(() => {
-        document.getElementById("weather-temp").textContent = "N/A";
-        document.getElementById("weather-desc").textContent = "Unable to fetch";
-        document.getElementById("weather-icon").style.display = 'none';
-      });
-
-    // Cycle to the next city
-    currentCityIndex = (currentCityIndex + 1) % cities.length;
-  }
-
-  updateWeather();
-  setInterval(updateWeather, 10 * 60 * 1000); // Update every 10 minutes
-</script>
-
-
-
-
-        
         <section id="contact" style="margin-top: 2rem;">
-            <h2>Contact Information</h2>
-            
-            <div class="card">
-                <h3>Emergency Contacts</h3>
-                <p><strong>Emergency Coordinator:</strong>Sai charan</p>
-                <p><strong>Amubulance:</strong> 108</p>
-                <p><strong>Police</strong>100</p>
-                <p><strong>Location:</strong>  Community Center, Main Street</p>
-                
-                <h3 style="margin-top: 1rem;">For Non-Emergencies</h3>
-                <p><strong>General Information:</strong>012345667</p>
-                <p><strong>Email:</strong> info@villageassistance.org</p>
-                <p><strong>Hours:</strong> Monday-Friday, 9AM-5PM</p>
-            </div>
+            <h2>Contact Us</h2>
+            <p>Email: <a href="mailto:support@villagealerts.com">support@villagealerts.com</a></p>
+            <p>Phone: +1 (555) 123-4567</p>
         </section>
     </div>
-    
+
     <footer>
-        <p>&copy; 2025 ALERT AND ASSISTANCE NETWORK | <a href="#" style="color: white;">Privacy Policy</a> | <a href="#" style="color: white;">Terms of Service</a></p>
-        <p>Last Updated: May 6, 2025</p>
+        <p>&copy; 2025 Village Alerts and Assistance Network</p>
     </footer>
+
+    <script>
+        // Alert banner close button handled inline above
+
+        // Formspree form submission with feedback
+        const form = document.getElementById('assistanceForm');
+        const messageEl = document.getElementById('formMessage');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const action = form.getAttribute('action');
+
+            try {
+                const response = await fetch(action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { Accept: 'application/json' },
+                });
+
+                if (response.ok) {
+                    messageEl.style.color = 'green';
+                    messageEl.textContent = 'Thank you! Your request has been sent successfully.';
+                    form.reset();
+                } else {
+                    const data = await response.json();
+                    if (data.errors) {
+                        messageEl.style.color = 'red';
+                        messageEl.textContent = data.errors
+                            .map((error) => error.message)
+                            .join(', ');
+                    } else {
+                        messageEl.style.color = 'red';
+                        messageEl.textContent =
+                            'Oops! There was a problem submitting your form.';
+                    }
+                }
+            } catch (error) {
+                messageEl.style.color = 'red';
+                messageEl.textContent = 'Error sending request: ' + error.message;
+            }
+        });
+    </script>
 </body>
 </html>
