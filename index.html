@@ -351,21 +351,26 @@
             </div>
         </section>
 
-        <section id="assistance" style="margin-top: 2rem;">
-            <h2>Request Assistance</h2>
-            <!-- Assistance Form -->
-            <form id="assistanceForm" action="https://formspree.io/f/meozzbya" method="POST">
-                <label for="name">Name:</label><br />
-                <input type="text" id="name" name="name" required /><br />
+       <section id="assistance" style="margin-top: 2rem;">
+    <h2>Request Assistance</h2>
+    <!-- Assistance Form -->
+    <form id="assistanceForm" action="https://formspree.io/f/meozzbya" method="POST">
+        <label for="name">Name:</label><br />
+        <input type="text" id="name" name="name" required /><br />
 
-                <label for="problem">Describe your problem:</label><br />
-                <textarea id="problem" name="problem" rows="4" required></textarea
-                ><br />
+        <label for="village">Village Name:</label><br />
+        <input type="text" id="village" name="village" required /><br />
 
-                <button type="submit" class="btn">Submit</button>
-            </form>
-            <p id="formMessage" style="color: green; margin-top: 1rem;"></p>
-        </section>
+        <label for="district">District Name:</label><br />
+        <input type="text" id="district" name="district" required /><br />
+
+        <label for="problem">Describe your problem:</label><br />
+        <textarea id="problem" name="problem" rows="4" required></textarea><br />
+
+        <button type="submit" class="btn">Submit</button>
+    </form>
+    <p id="formMessage" style="color: green; margin-top: 1rem;"></p>
+</section>
 
         <section id="volunteer" style="margin-top: 2rem;">
             <h2>Volunteer to Help</h2>
